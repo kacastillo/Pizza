@@ -6,7 +6,7 @@
     <title>Poppa's Pizza</title>
 
     <!-- favicon -->
-    <link rel="icon" href="images/pizza_slice.png">
+    <link rel="icon" href="images/pizza-slice.jpg">
 
     <!-- stylesheet -->
      <link rel="stylesheet" href="styles/pizza-styles.css">
@@ -14,14 +14,108 @@
 <body>
     <main>
         <header>
-            <h1> Welcome to Poppa's Pizza</h1>
-            <h2>Serving GRC students for centuries</h2>
-            <hr><p>Come check us out now!</p>
-            
+            <img src="images/pizza_guy.png" alt="pizza guy">
+            <h1>Welcome to Poppa's Pizza</h1>
+            <h2>Serving GRC Students for 50 Years</h2>
+            <hr>
+            <p>Come check us out</p>
+            <a id="contact-button" href="#" role="button">Contact Us</a>
         </header>
-    </main>
-    <form>
 
-    </form>
+        <form id="pizza-form" action="#" method="get">
+
+            <!-- Contact Info -->
+            <fieldset>
+                <legend>Contact Info</legend>
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname">
+                <label for="email">Email Address:</label>
+                <input type="text" id="email" name="email">
+            </fieldset> 
+
+            <!-- Pickup or Delivery -->
+            <fieldset>
+                <legend>Select Pickup or Delivery</legend>
+                <label for="pickup">
+                    <input type="radio" id="pickup"
+                           value="pickup"
+                           name="method">Pickup
+                </label>
+                <label for="delivery">
+                    <input type="radio" id="delivery"
+                           value="delivery"
+                           name="method">Delivery
+                </label>
+            </fieldset>  
+            
+            <!-- Toppings -->
+            <fieldset>
+                <legend>Select Toppings</legend>  
+                <label for="pepperoni">
+                    <input type = "checkbox" 
+                    id ="pepperoni"
+                     name= "toppings[]"
+                     value= "pepperoni">
+                    Pepperoni
+                </label> 
+                <label for="pineapple">
+                    <input type = "checkbox" 
+                    id ="pineapple"
+                     name= "toppings[]"
+                     value= "pineapple">
+                    Pineapple
+                </label>
+                <label for="bacon">
+                    <input type = "checkbox" 
+                    id ="bacon"
+                     name= "toppings[]"
+                     value= "bacon">
+                    Bacon
+                </label>
+                <label for="broccoli">
+                    <input type = "checkbox" 
+                    id ="broccoli"
+                     name= "toppings[]"
+                     value= "broccoli">
+                    Broccoli
+                </label>
+                <label for="blue_cheese">
+                    <input type = "checkbox" 
+                    id ="blue_cheese"
+                     name= "toppings[]"
+                     value= "blue cheese">
+                    Blue cheese
+                </label>
+            </fieldset>
+
+            <!-- Size -->
+            <fieldset>
+                <legend>Pizza Size</legend> 
+                <select id = "size" name="size">
+                    <option value="none">None</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>  
+            </fieldset>
+
+            <!-- Comment Field -->
+            <label for="comment">Comments</label>
+            <textarea rows="2" id="comment" name="comment"></textarea>
+
+            <!-- Discounts -->
+                <label for="discount">
+                    <input type = "checkbox" 
+                    id ="discount"
+                     name= "discounts" checked 
+                     value= "discount">
+                    Sign me up for discounts!
+
+            <!-- Submit button -->
+            <button type="submit" id="order-button">Place Order</button>
+        </form>
+    </main>
 </body>
 </html>
