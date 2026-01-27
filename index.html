@@ -10,9 +10,12 @@
 
     <!-- stylesheet -->
      <link rel="stylesheet" href="styles/pizza-styles.css">
+
+     <!-- javascript -->
+     <script src="scripts/pizza.js">defer</script>
 </head>
 <body>
-    <main>
+     <main>
         <header>
             <img src="images/pizza_guy.png" alt="pizza guy">
             <h1>Welcome to Poppa's Pizza</h1>
@@ -27,7 +30,9 @@
             <!-- Contact Info -->
             <fieldset>
                 <legend>Contact Info</legend>
-                <label for="fname">First Name:</label>
+                <label for="fname">First Name:
+                    <span class="err" id="err-fname"> First name is required</span>
+                </label>
                 <input type="text" id="fname" name="fname">
                 <label for="lname">Last Name:</label>
                 <input type="text" id="lname" name="lname">
@@ -52,66 +57,59 @@
             
             <!-- Toppings -->
             <fieldset>
-                <legend>Select Toppings</legend>  
+                <legend>Select Toppings</legend>
                 <label for="pepperoni">
-                    <input type = "checkbox" 
-                    id ="pepperoni"
-                     name= "toppings[]"
-                     value= "pepperoni">
-                    Pepperoni
-                </label> 
-                <label for="pineapple">
-                    <input type = "checkbox" 
-                    id ="pineapple"
-                     name= "toppings[]"
-                     value= "pineapple">
-                    Pineapple
+                    <input type="checkbox"
+                           id="pepperoni"
+                           name="toppings[]"
+                           value="pepperoni">
+                        Pepperoni
+                    </input>
+                </label>  
+                <label for="mushrooms">
+                    <input type="checkbox"
+                           id="mushrooms"
+                           name="toppings[]"
+                           value="mushrooms">
+                        Mushrooms
+                    </input>
                 </label>
-                <label for="bacon">
-                    <input type = "checkbox" 
-                    id ="bacon"
-                     name= "toppings[]"
-                     value= "bacon">
-                    Bacon
+                <label for="artichokes">
+                    <input type="checkbox"
+                           id="artichokes"
+                           name="toppings[]"
+                           value="artichokes">
+                        Artichokes
+                    </input>
                 </label>
-                <label for="broccoli">
-                    <input type = "checkbox" 
-                    id ="broccoli"
-                     name= "toppings[]"
-                     value= "broccoli">
-                    Broccoli
-                </label>
-                <label for="blue_cheese">
-                    <input type = "checkbox" 
-                    id ="blue_cheese"
-                     name= "toppings[]"
-                     value= "blue cheese">
-                    Blue cheese
+                <label for="tomatoes">
+                    <input type="checkbox"
+                           id="tomatoes"
+                           name="toppings[]"
+                           value="tomatoes">
+                        Tomatoes
+                    </input>
                 </label>
             </fieldset>
-
+            
             <!-- Size -->
             <fieldset>
-                <legend>Pizza Size</legend> 
-                <select id = "size" name="size">
-                    <option value="none">None</option>
+                <legend>Pizza Size</legend>
+                <select id= "size" name= "size">
+                    <option value="none">-- Select a size --</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                 </select>  
             </fieldset>
 
-            <!-- Comment Field -->
-            <label for="comment">Comments</label>
-            <textarea rows="2" id="comment" name="comment"></textarea>
+            <!-- Comment field -->
+            <label for="comment">Comments/Instructions:</label>
+            <textarea rows="5" id="comment" name="comment"></textarea>
 
-            <!-- Discounts -->
-                <label for="discount">
-                    <input type = "checkbox" 
-                    id ="discount"
-                     name= "discounts" checked 
-                     value= "discount">
-                    Sign me up for discounts!
+            <label for="discount">
+                <input type="checkbox" id="discount" name="discount" checked></input>
+            Sign me up for discounts!</label>
 
             <!-- Submit button -->
             <button type="submit" id="order-button">Place Order</button>
