@@ -6,13 +6,13 @@
     <title>Poppa's Pizza</title>
 
     <!-- favicon -->
-    <link rel="icon" href="images/pizza-slice.jpg">
+    <link rel="icon" href="images/pizza_slice.png">
 
     <!-- stylesheet -->
      <link rel="stylesheet" href="styles/pizza-styles.css">
 
      <!-- javascript -->
-     <script src="scripts/pizza.js">defer</script>
+     <script src="pizza.js"defer></script>
 </head>
 <body>
      <main>
@@ -34,21 +34,24 @@
                     <span class="err" id="err-fname"> First name is required</span>
                 </label>
                 <input type="text" id="fname" name="fname">
-                <label for="lname">Last Name:</label>
+                <label for="lname">Last Name:<span class="err" id="err-lname"> 
+                    Last name is required</span>
+                </label>
                 <input type="text" id="lname" name="lname">
-                <label for="email">Email Address:</label>
+                <label for="email">Email Address:<span class="err" id="err-email"> Email is required</span>
+                </label>
                 <input type="text" id="email" name="email">
             </fieldset> 
 
             <!-- Pickup or Delivery -->
             <fieldset>
                 <legend>Select Pickup or Delivery</legend>
-                <label for="pickup">
+                <label for="pickup"><span class="err" id="err-pickup-delivery">Please select pickup or delivery</span>
                     <input type="radio" id="pickup"
                            value="pickup"
                            name="method">Pickup
                 </label>
-                <label for="delivery">
+                <label for="delivery"><span class="err" id="err-pickup-delivery">Please select pickup or delivery</span>
                     <input type="radio" id="delivery"
                            value="delivery"
                            name="method">Delivery
@@ -95,6 +98,7 @@
             <!-- Size -->
             <fieldset>
                 <legend>Pizza Size</legend>
+                <span class = "err" id="err-size"> Please select a size</span>
                 <select id= "size" name= "size">
                     <option value="none">-- Select a size --</option>
                     <option value="small">Small</option>
