@@ -6,18 +6,18 @@
     <title>Poppa's Pizza</title>
 
     <!-- favicon -->
-    <link rel="icon" href="images/pizza_slice.png">
+    <link rel="icon" href="images/pizza-slice.jpg">
 
     <!-- stylesheet -->
      <link rel="stylesheet" href="styles/pizza-styles.css">
 
-     <!-- javascript -->
-     <script src="pizza.js"defer></script>
+    <!-- JavaScript -->
+    <script src="pizza.js" defer></script>
 </head>
 <body>
-     <main>
+    <main>
         <header>
-            <img src="images/pizza_guy.png" alt="pizza guy">
+            <img src="images/pizza-guy.png" alt="pizza guy">
             <h1>Welcome to Poppa's Pizza</h1>
             <h2>Serving GRC Students for 50 Years</h2>
             <hr>
@@ -30,15 +30,22 @@
             <!-- Contact Info -->
             <fieldset>
                 <legend>Contact Info</legend>
-                <label for="fname">First Name:
-                    <span class="err" id="err-fname"> First name is required</span>
+                <label for="fname">First Name: 
+                    <span class="err" id="err-fname">
+                        First name is required
+                    </span>
                 </label>
                 <input type="text" id="fname" name="fname">
-                <label for="lname">Last Name:<span class="err" id="err-lname"> 
-                    Last name is required</span>
+                <label for="lname">Last Name:
+                    <span class="err" id="err-lname">
+                        Last name is required
+                    </span>
                 </label>
                 <input type="text" id="lname" name="lname">
-                <label for="email">Email Address:<span class="err" id="err-email"> Email is required</span>
+                <label for="email">Email Address:
+                    <span class="err" id="err-email">
+                        Email is required
+                    </span>
                 </label>
                 <input type="text" id="email" name="email">
             </fieldset> 
@@ -46,12 +53,15 @@
             <!-- Pickup or Delivery -->
             <fieldset>
                 <legend>Select Pickup or Delivery</legend>
-                <label for="pickup"><span class="err" id="err-pickup-delivery">Please select pickup or delivery</span>
+                    <span class="err" id="err-method">
+                        Please select pickup or delivery
+                    </span>
+                <label for="pickup">
                     <input type="radio" id="pickup"
                            value="pickup"
                            name="method">Pickup
                 </label>
-                <label for="delivery"><span class="err" id="err-pickup-delivery">Please select pickup or delivery</span>
+                <label for="delivery">
                     <input type="radio" id="delivery"
                            value="delivery"
                            name="method">Delivery
@@ -98,8 +108,10 @@
             <!-- Size -->
             <fieldset>
                 <legend>Pizza Size</legend>
-                <span class = "err" id="err-size"> Please select a size</span>
-                <select id= "size" name= "size">
+                <span class="err" id="err-size">
+                    Please select a pizza size
+                </span>
+                <select id="size" name="size">
                     <option value="none">-- Select a size --</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
