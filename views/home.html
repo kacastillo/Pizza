@@ -17,14 +17,15 @@
 <body>
     <main>
         <header>
-            <img src="images/pizza_dino.webp" alt="pizza dino">
+            <img src="images/pizza_dino.webp" alt="pizza guy">
             <h1>Welcome to Poppa's Pizza</h1>
             <h2>Serving GRC Students for 50 Years</h2>
             <hr>
             <p>Come check us out</p>
-            <a id="contact-button" href="/contact" role="button">Contact Us</a>
+            <a id="contact-button" href="/contact-us" role="button">Contact Us</a>
         </header>
 
+        <!-- post method is more secure than get -->
         <form id="pizza-form" action="/submit-order" method="post">
 
             <!-- Contact Info -->
@@ -128,7 +129,6 @@
             Sign me up for discounts!</label>
 
             <!-- Submit button -->
-              <a id="submit" href="/confirmation" role="button">Place Order</a>
             <button type="submit" id="order-button">Place Order</button>
         </form>
     </main>

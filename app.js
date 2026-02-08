@@ -1,60 +1,59 @@
-// import the express module
 import express from 'express';
-
-// create an express pplication
 const app = express();
-
-// define a port number
 const PORT = 3000;
-
-// enable static file serving 
 app.use(express.static('public'));
 
-// define our main route ('/')
+// "Middleware" that allows express to read
+// form data and store it in req.body
+app.use(express.urlencoded({ extended: true }));
+
+// Create a temp array to store orders
+const orders = []; 
+
+// Default route
 app.get('/', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 });
 
-// start server and listen on designated port
-app.listen(PORT, () => {
-    console.log(`Server is running gloriously on http://localhost:${PORT}`);
+// Contact route
+app.get('/contact-us', (req, res) => {
+    res.sendFile(`${import.meta.dirname}/views/contact.html`);
 });
 
-// Contact route
-app.get('/contact', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/contact.html`);
-}); 
+// Confirmation route
+app.get('/thank-you', (req, res) => {
+    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+});
 
-// submit-order route
+// Admin route
+app.get('/admin', (req, res) => {
+    res.send(orders);
+});
 
-app.post('/submit-order' , (req, res) => {
-    res.send(req.body); // Placeholder response, you can customize this as needed
-    // res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
-
-    //create json 
+// Submit order route
+// {"fname":"a","lname":"aa","email":"a",
+// "method":"delivery","toppings":["artichokes"],
+// "size":"small","comment":"","discount":"on"}
+app.post('/submit-order', (req, res) => {
+    
+    // Create a JSON object to store the order data
     const order = {
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
-        size: req.body.size,
         method: req.body.method,
-        toppings: req.body.toppings,
+        toppings: req.body.toppings ? req.body.toppings : "none",
+        size: req.body.size,
+        comment: req.body.comment,
         timestamp: new Date()
     };
 
-    // add order to an order array
+    // Add order object to orders array
     orders.push(order);
 
-  res.send(order); // Send the order data back as a response (for testing purposes)
-}); 
+    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+});
 
-// route admin that displays all orders in JSON format
-app.get('/admin', (req, res) => {
-    res.send(orders);
-});;
-
-// "Middleware" that allows express to read form data and store it in req.body
-app.use(express.urlencoded({ extended: true }));
-
-//Create a temp array to store orders
-const orders = [];
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
