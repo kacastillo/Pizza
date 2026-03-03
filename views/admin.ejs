@@ -31,7 +31,7 @@
                 <tr>
                     <td><%= order.fname %> <%= order.lname %></td>
                     <td><%= order.email %></td>
-                    <td><%= order.toppings.join(', ') %></td>
+                 <td><%= order.toppings %></td>
                     <td><%= order.size %></td>
                     <td><%= order.method %></td>
                     <td><%= order.comment %></td>
@@ -45,7 +45,7 @@
     <% orders.forEach(order => { %>
        <p><%=order.fname %> <%=order.lname %></p>
         <p><%=order.email %></p>
-        <p><%= order.toppings.join(', ') %></p>
+       <p><%= order.toppings %></p>
         <p><%= order.size %></p>
         <p><%= order.method %></p>
         <p><%= order.comment %></p>
