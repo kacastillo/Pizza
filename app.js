@@ -1,4 +1,11 @@
+// Import the mysql2 module
+// mysql2 allows Node.js to communicate with a MySQL database
 import express from 'express';
+import mysql2 from 'mysql2';
+import dotenv from 'dotenv';
+dotenv.config();
+console.log(process.env.DB_HOST); // Check if environment variable is loaded
+
 const app = express();
 const PORT = 3000;
 app.use(express.static('public'));
@@ -12,6 +19,25 @@ app.use(express.urlencoded({ extended: true }));
 
 // Create a temp array to store orders
 const orders = []; 
+
+// create a pool (bucket) of database connections
+const pool = mysql2.createPool({
+host: process.env.DB_HOST,
+user: process.env.DB_USER,
+password: process.env.DB_PASSWORD,
+database: process.env.DB_NAME,
+port: process.env.DB_PORT
+}).promise();
+
+// create a test route database
+app.get('/db-test', async (req, res) => {
+    try {
+        const pizza_orders = await pool.query('SELECT * FROM orders');
+        res.json(pizza_orders[0]);
+    } catch(err) {
+        console.error('Database error:', err);
+    }
+});
 
 // Default route
 app.get('/', (req, res) => {
@@ -30,7 +56,7 @@ app.get('/thank-you', (req, res) => {
 
 // Admin route
 app.get('/admin', (req, res) => {
-    res.send(orders);
+    res.render('admin', { orders: orders });
 });
 
 // Submit order route
@@ -53,8 +79,7 @@ app.post('/submit-order', (req, res) => {
 
     // Add order object to orders array
     orders.push(order);
-
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+    res.render('confirmation', {order: order});
 });
 
 app.listen(PORT, () => {
